@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .bg-grid-dots {
+    background-image: radial-gradient(rgba(147, 197, 253, 0.4) 1.5px, transparent 1.5px);
+    background-size: 18px 18px;
+  }
+  
+  .bg-grid-dots-purple {
+    background-image: radial-gradient(rgba(167, 139, 250, 0.35) 1.5px, transparent 1.5px);
+    background-size: 20px 20px;
+  }
+
+  .text-gradient-primary {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#1d4ed8] via-[#2563eb] to-[#3b82f6];
+  }
+
+  .text-gradient-purple {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#1e40af] via-[#4338ca] to-[#2563eb];
+  }
+
+  .btn-gradient {
+    background: linear-gradient(135deg, #2563eb 0%, #0284c7 100%);
+  }
+
+  .btn-cv-gradient {
+    background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+  }
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
