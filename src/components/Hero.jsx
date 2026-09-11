@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, MessageCircle, Github, Linkedin, Mail, Code2 } from 'lucide-react';
+import avatarImg from '../assets/images/avatar.png';
 
 export default function Hero() {
   return (
@@ -151,12 +152,12 @@ export default function Hero() {
               {/* Main Avatar Container */}
               <div className="relative w-[280px] h-[280px] sm:w-[360px] sm:h-[360px] lg:w-[400px] lg:h-[400px] rounded-full overflow-hidden border-4 border-white shadow-2xl shadow-indigo-500/15 bg-gradient-to-b from-amber-50 to-orange-100 flex items-center justify-center">
                 <img
-                  src="file:///C:/Users/ACS/.gemini/antigravity/brain/dd091c7f-980b-48d9-acd7-5017af090ded/avatar_zineb_1787615099978.png"
+                  src={avatarImg}
                   alt="Zineb Kechkar Portrait"
                   className="w-full h-full object-cover object-top scale-105"
                   onError={(e) => {
                     e.target.onerror = null;
-                    e.target.src = "/avatar.png";
+                    e.target.src = "/images/avatar.png";
                   }}
                 />
               </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Folder, Award, GraduationCap, ExternalLink, Rocket, Code2, Pencil, Palette } from 'lucide-react';
+import avatarImg from '../assets/images/avatar.png';
 
 export default function About() {
   return (
@@ -26,12 +27,12 @@ export default function About() {
             className="w-40 h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56 rounded-full overflow-hidden shrink-0 border-4 border-slate-100 shadow-xl bg-gradient-to-b from-amber-50 to-orange-100"
           >
             <img
-              src="file:///C:/Users/ACS/.gemini/antigravity/brain/dd091c7f-980b-48d9-acd7-5017af090ded/avatar_zineb_1787615099978.png"
+              src={avatarImg}
               alt="Zineb Kechkar Portrait"
               className="w-full h-full object-cover object-top scale-105"
               onError={(e) => {
                 e.target.onerror = null;
-                e.target.src = "/avatar.png";
+                e.target.src = "/images/avatar.png";
               }}
             />
           </motion.div>

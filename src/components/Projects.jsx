@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, ExternalLink, ChevronRight } from 'lucide-react';
+import bricodzMockupImg from '../assets/images/bricodz-mockup.png';
 
 export default function Projects() {
   const projects = [
@@ -22,8 +23,7 @@ export default function Projects() {
         'Android',
       ],
       liveUrl: 'https://bricodz-website.onrender.com/',
-      imageSrc:
-        'file:///C:/Users/ACS/.gemini/antigravity/brain/618a5e74-05d5-4d04-881b-7ce22a7b0550/media__1788560319962.png',
+      imageSrc: bricodzMockupImg,
     },
   ];
 
@@ -65,7 +65,7 @@ export default function Projects() {
                       className="w-full h-auto object-cover rounded-2xl contrast-[1.03] saturate-[1.02] [image-rendering:-webkit-optimize-contrast]"
                       onError={(e) => {
                         e.target.onerror = null;
-                        e.target.src = "/bricodz-mockup.png";
+                        e.target.src = "/images/bricodz-mockup.png";
                       }}
                     />
                   </div>
