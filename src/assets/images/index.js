@@ -3,6 +3,7 @@ import bricodzMockupImg from './bricodz-mockup.png';
 import bricodzShowcaseImg from './bricodz-showcase.png';
 import faviconSvg from './favicon.svg';
 import hospitalImg from './HOSPITAL.png';
+import rommifyImg from './rommify.png';
 
 export {
   avatarImg,
@@ -10,6 +11,7 @@ export {
   bricodzShowcaseImg,
   faviconSvg,
   hospitalImg,
+  rommifyImg,
 };
 
 export default {
@@ -18,4 +20,6 @@ export default {
   bricodzShowcase: bricodzShowcaseImg,
   favicon: faviconSvg,
   hospital: hospitalImg,
+  rommify: rommifyImg,
 };
+

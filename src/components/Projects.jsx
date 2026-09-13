@@ -1,9 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, ExternalLink, ChevronRight } from 'lucide-react';
+import { ArrowRight, ExternalLink, ChevronRight, Github, Globe } from 'lucide-react';
 import bricoImg from '../assets/images/brico.png';
 import hospitalImg from '../assets/images/HOSPITAL.png';
 import hosImg from '../assets/images/hos.png';
+import rommifyImg from '../assets/images/rommify.png';
 
 export default function Projects() {
   const projects = [
@@ -83,6 +84,45 @@ export default function Projects() {
         },
       ],
     },
+    {
+      id: '03',
+      title: 'Rommify',
+      tagline: 'Paint, Decor & Home Improvement',
+      description:
+        'A modern and responsive website for a paint and home decor brand, showcasing products and services with a clean and elegant design. I also designed the brand identity, including the logo and promotional flyer.',
+      badge: 'WEB & BRANDING PROJECT',
+      badgePlacement: 'adjacent', // badge right next to 03
+      badgeStyle: 'blue',
+      statusText: 'Live website showcasing products and branding',
+      techStack: [
+        'HTML',
+        'CSS',
+        'JavaScript',
+        'Logo Design',
+        'Flyer Design',
+      ],
+      liveUrl: 'https://rommify-3d-paint-decor.vercel.app/',
+      caseStudyUrl: 'https://rommify-3d-paint-decor.vercel.app/',
+      imageSrc: rommifyImg,
+      fallbackImg: '/images/rommify.png',
+      imagePosition: 'left', // image on left, info on right
+      imageColSpan: 'lg:col-span-6',
+      infoColSpan: 'lg:col-span-6',
+      buttons: [
+        {
+          label: 'View case study',
+          href: 'https://rommify-3d-paint-decor.vercel.app/',
+          variant: 'primary-blue',
+          icon: 'arrow',
+        },
+        {
+          label: 'Live Demo (Web)',
+          href: 'https://rommify-3d-paint-decor.vercel.app/',
+          variant: 'link',
+          icon: 'globe',
+        },
+      ],
+    },
   ];
 
   return (
@@ -105,6 +145,8 @@ export default function Projects() {
         <div className="w-full space-y-12">
           {projects.map((project) => {
             const isImageRight = project.imagePosition === 'right';
+            const imgCol = project.imageColSpan || (isImageRight ? 'lg:col-span-6' : 'lg:col-span-7');
+            const infoCol = project.infoColSpan || (isImageRight ? 'lg:col-span-6' : 'lg:col-span-5');
 
             return (
               <motion.div
@@ -119,9 +161,9 @@ export default function Projects() {
 
                   {/* Image Column */}
                   <div
-                    className={`w-full ${isImageRight
-                        ? 'lg:col-span-6 lg:order-2 order-2'
-                        : 'lg:col-span-7 lg:order-1 order-1'
+                    className={`w-full ${imgCol} ${isImageRight
+                        ? 'lg:order-2 order-2'
+                        : 'lg:order-1 order-1'
                       }`}
                   >
                     <div className="w-full rounded-2xl overflow-hidden shadow-xl border border-slate-200/80 bg-[#f4f3f8]">
@@ -139,9 +181,9 @@ export default function Projects() {
 
                   {/* Project Info & Details Column */}
                   <div
-                    className={`flex flex-col justify-between h-full space-y-5 ${isImageRight
-                        ? 'lg:col-span-6 lg:order-1 order-1'
-                        : 'lg:col-span-5 lg:order-2 order-2'
+                    className={`flex flex-col justify-between h-full space-y-5 ${infoCol} ${isImageRight
+                        ? 'lg:order-1 order-1'
+                        : 'lg:order-2 order-2'
                       }`}
                   >
                     <div>
@@ -206,7 +248,7 @@ export default function Projects() {
                     </div>
 
                     {/* Action Buttons Row */}
-                    <div className="flex flex-wrap items-center gap-3 pt-2">
+                    <div className="flex flex-wrap items-center gap-4 sm:gap-6 pt-2">
                       {project.buttons.map((btn, bIdx) => {
                         if (btn.variant === 'primary-blue') {
                           return (
@@ -215,7 +257,7 @@ export default function Projects() {
                               href={btn.href}
                               target={btn.href.startsWith('http') ? '_blank' : undefined}
                               rel={btn.href.startsWith('http') ? 'noreferrer' : undefined}
-                              className="bg-[#1d6fe9] hover:bg-blue-600 text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-xl transition-all shadow-md shadow-blue-500/25 hover:shadow-blue-500/40 flex items-center gap-2"
+                              className="bg-[#1d6fe9] hover:bg-blue-600 text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-xl transition-all shadow-md shadow-blue-500/25 hover:shadow-blue-500/40 flex items-center gap-2 whitespace-nowrap shrink-0"
                             >
                               <span>{btn.label}</span>
                               <ArrowRight className="w-4 h-4" />
@@ -230,10 +272,33 @@ export default function Projects() {
                               href={btn.href}
                               target={btn.href.startsWith('http') ? '_blank' : undefined}
                               rel={btn.href.startsWith('http') ? 'noreferrer' : undefined}
-                              className="bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 hover:opacity-95 text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-xl transition-all shadow-md shadow-blue-500/25 hover:shadow-blue-500/40 flex items-center gap-2"
+                              className="bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 hover:opacity-95 text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-xl transition-all shadow-md shadow-blue-500/25 hover:shadow-blue-500/40 flex items-center gap-2 whitespace-nowrap shrink-0"
                             >
                               <span>{btn.label}</span>
                               <ArrowRight className="w-4 h-4" />
+                            </a>
+                          );
+                        }
+
+                        if (btn.variant === 'link') {
+                          return (
+                            <a
+                              key={bIdx}
+                              href={btn.href}
+                              target={btn.href.startsWith('http') ? '_blank' : undefined}
+                              rel={btn.href.startsWith('http') ? 'noreferrer' : undefined}
+                              className="text-slate-700 hover:text-blue-600 font-semibold text-xs sm:text-sm transition-colors flex items-center gap-2 py-2 group whitespace-nowrap"
+                            >
+                              {btn.icon === 'github' && (
+                                <Github className="w-4 h-4 text-slate-800 group-hover:text-blue-600 transition-colors" />
+                              )}
+                              {btn.icon === 'globe' && (
+                                <Globe className="w-4 h-4 text-slate-600 group-hover:text-blue-600 transition-colors" />
+                              )}
+                              {btn.icon === 'external' && (
+                                <ExternalLink className="w-4 h-4 text-slate-500 group-hover:text-blue-600 transition-colors" />
+                              )}
+                              <span>{btn.label}</span>
                             </a>
                           );
                         }
@@ -252,6 +317,7 @@ export default function Projects() {
                         );
                       })}
                     </div>
+
 
                   </div>
 
