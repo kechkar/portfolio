@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Download, Menu, X } from 'lucide-react';
 
 export default function Navbar() {
@@ -6,13 +6,38 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Services', href: '#services' },
-    { name: 'Projects', href: '#projects' },
+    { name: 'Home',       href: '#home' },
+    { name: 'About',      href: '#about' },
+    { name: 'Services',   href: '#services' },
+    { name: 'Projects',   href: '#projects' },
     { name: 'Experience', href: '#experience' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Contact',    href: '#contact' },
   ];
+
+  // ── Auto-highlight nav link based on scroll position ──
+  useEffect(() => {
+    const NAVBAR_HEIGHT = 88; // px — matches h-20 (80px) + a little buffer
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY + NAVBAR_HEIGHT;
+
+      // Find the last section whose top is above the current scroll position
+      let current = navLinks[0].name;
+      for (const link of navLinks) {
+        const el = document.getElementById(link.href.replace('#', ''));
+        if (el && el.offsetTop <= scrollY) {
+          current = link.name;
+        }
+      }
+      setActiveTab(current);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // run once on mount to set initial state
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 bg-[#f9f8fe]/90 backdrop-blur-md transition-all duration-300">
