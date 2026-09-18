@@ -54,7 +54,10 @@ export default function Navbar() {
           {/* Download CV Button */}
           <div className="hidden md:flex items-center">
             <a
-              href="#cv"
+              href="/Zineb_Kechkar_CV.pdf"
+              download="Zineb_Kechkar_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 via-blue-600 to-indigo-600 text-white font-semibold text-sm shadow-md shadow-indigo-200 hover:shadow-indigo-300 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
             >
               <Download className="w-4 h-4 stroke-[2.5]" />
@@ -92,7 +95,10 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="#cv"
+            href="/Zineb_Kechkar_CV.pdf"
+            download="Zineb_Kechkar_CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-blue-600 text-white font-semibold text-sm shadow-md"
           >
             <Download className="w-4 h-4" />

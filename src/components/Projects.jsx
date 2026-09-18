@@ -1,12 +1,75 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight, ExternalLink, ChevronRight, Github, Globe } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowRight, ExternalLink, ChevronRight, ChevronLeft, Github, Globe, X } from 'lucide-react';
 import bricoImg from '../assets/images/brico.png';
 import hospitalImg from '../assets/images/HOSPITAL.png';
 import hosImg from '../assets/images/hos.png';
 import rommifyImg from '../assets/images/rommify.png';
+import design1Img from '../assets/images/design1.png';
+import design2Img from '../assets/images/DESIGN2.png';
+import bricoFlyerImg from '../assets/images/BricoDz-Flyer.png';
+import worktrackImg from '../assets/images/worktrack.png';
+import mainlogoImg from '../assets/images/mainlogo.png';
 
 export default function Projects() {
+  const [selectedDesign, setSelectedDesign] = useState(null);
+  // Start at 0: original 3 cards visible first, clicking → right reveals the new cards.
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  const designWorks = [
+    {
+      id: '01',
+      title: 'Poster Design',
+      description: 'Creative poster design with a modern and artistic look.',
+      imageSrc: design1Img,
+      fallbackImg: '/images/design1.png',
+      objectPosition: 'center top',
+    },
+    {
+      id: '02',
+      title: 'Social Media Post',
+      description: 'Promotional design for a burger restaurant with a bold and appetizing style.',
+      imageSrc: design2Img,
+      fallbackImg: '/images/DESIGN2.png',
+      objectPosition: 'center',
+    },
+    {
+      id: '03',
+      title: 'Flyer Design',
+      description: 'Promotional flyer design for BricoDz platform with a clean and professional look.',
+      imageSrc: bricoFlyerImg,
+      fallbackImg: '/images/BricoDz-Flyer.png',
+      objectPosition: 'center top',
+    },
+    {
+      id: '04',
+      title: 'WorkTrack Logo',
+      description: 'Logo designed for WorkTrack, a task and project management application, combining productivity and clarity in a modern identity.',
+      imageSrc: worktrackImg,
+      fallbackImg: '/images/worktrack.png',
+      objectPosition: '15% center',
+    },
+    {
+      id: '05',
+      title: 'University of Boumerdes — Logo Redesign',
+      description: 'Redesign of the official logo of the University of Boumerdes, modernizing its visual identity while preserving institutional values.',
+      imageSrc: mainlogoImg,
+      fallbackImg: '/images/Main_logo.png',
+      objectPosition: 'center',
+    },
+  ];
+
+  const CARDS_PER_PAGE = 3; // desktop visible cards
+  const maxStart = Math.max(0, designWorks.length - CARDS_PER_PAGE);
+
+  const handlePrevSlide = () => {
+    setActiveSlide((prev) => Math.max(0, prev - 1));
+  };
+
+  const handleNextSlide = () => {
+    setActiveSlide((prev) => Math.min(maxStart, prev + 1));
+  };
+
   const projects = [
     {
       id: '01',
@@ -112,14 +175,14 @@ export default function Projects() {
         {
           label: 'View case study',
           href: 'https://rommify-3d-paint-decor.vercel.app/',
-          variant: 'primary-blue',
+          variant: 'gradient',
           icon: 'arrow',
         },
         {
           label: 'Live Demo (Web)',
           href: 'https://rommify-3d-paint-decor.vercel.app/',
-          variant: 'link',
-          icon: 'globe',
+          variant: 'outline',
+          icon: 'external',
         },
       ],
     },
@@ -326,6 +389,166 @@ export default function Projects() {
             );
           })}
         </div>
+
+        {/* ================= DESIGN WORK SHOWCASE SECTION ================= */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="w-full pt-16 sm:pt-20 lg:pt-24"
+        >
+          {/* Header */}
+          <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
+            <span className="text-blue-600 font-bold text-xs sm:text-sm tracking-wider uppercase bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-100/80 inline-block mb-3">
+              DESIGN WORK
+            </span>
+            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight mb-3">
+              Visual Designs for Real Brands
+            </h3>
+            <p className="text-slate-500 font-medium text-xs sm:text-sm md:text-base leading-relaxed">
+              Logos, flyers, and social media designs created to build strong and consistent brand identities.
+            </p>
+          </div>
+
+          {/* Carousel / Grid Container with Navigation Arrows */}
+          <div className="relative px-0 sm:px-3 lg:px-5">
+            {/* Prev Arrow */}
+            <button
+              onClick={handlePrevSlide}
+              aria-label="Previous Design"
+              disabled={activeSlide === 0}
+              className="absolute -left-3 sm:-left-5 lg:-left-6 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white border border-slate-200 shadow-lg flex items-center justify-center text-slate-700 hover:text-blue-600 hover:border-blue-300 hover:scale-110 active:scale-95 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
+            >
+              <ChevronLeft className="w-5 h-5 stroke-[2.2]" />
+            </button>
+
+            {/* Sliding Carousel Window */}
+            <div className="overflow-hidden">
+              <motion.div
+                className="flex gap-6 sm:gap-8"
+                animate={{ x: `calc(-${activeSlide} * (100% / 3 + 2rem / 3 * 2))` }}
+                transition={{ type: 'spring', stiffness: 300, damping: 35 }}
+              >
+                {designWorks.map((work) => (
+                  <div
+                    key={work.id}
+                    onClick={() => setSelectedDesign(work)}
+                    className="group relative shrink-0 w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.333rem)] h-[360px] sm:h-[390px] lg:h-[410px] rounded-3xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl border border-slate-200/70 bg-slate-900 transition-all duration-500"
+                  >
+                    {/* High-res Image */}
+                    <img
+                      src={work.imageSrc}
+                      alt={work.title}
+                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                      style={{ objectPosition: work.objectPosition || 'center' }}
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = work.fallbackImg;
+                      }}
+                    />
+
+                    {/* Dark Vignette / Gradient Overlay - Hidden initially, Reveals on Hover */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
+
+                    {/* Title & Description Overlay - Hidden until Hover */}
+                    <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 z-20 flex items-end justify-between gap-3 opacity-0 translate-y-6 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out">
+                      <div className="flex-1 min-w-0 pr-2">
+                        <h4 className="text-lg sm:text-xl font-bold text-white tracking-tight mb-1">
+                          {work.title}
+                        </h4>
+                        <p className="text-slate-300 text-xs sm:text-sm leading-relaxed font-normal line-clamp-2">
+                          {work.description}
+                        </p>
+                      </div>
+
+                      {/* View Button */}
+                      <div className="w-10 h-10 rounded-2xl bg-white/15 hover:bg-white/30 border border-white/25 backdrop-blur-md flex items-center justify-center text-white shrink-0 transition-all shadow-md">
+                        <ExternalLink className="w-4 h-4" />
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </motion.div>
+            </div>
+
+            {/* Next Arrow */}
+            <button
+              onClick={handleNextSlide}
+              aria-label="Next Design"
+              disabled={activeSlide >= maxStart}
+              className="absolute -right-3 sm:-right-5 lg:-right-6 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white border border-slate-200 shadow-lg flex items-center justify-center text-slate-700 hover:text-blue-600 hover:border-blue-300 hover:scale-110 active:scale-95 transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
+            >
+              <ChevronRight className="w-5 h-5 stroke-[2.2]" />
+            </button>
+          </div>
+
+          {/* Pagination Indicator Dots */}
+          <div className="flex items-center justify-center gap-2 mt-8">
+            {Array.from({ length: maxStart + 1 }).map((_, dotIdx) => (
+              <button
+                key={dotIdx}
+                onClick={() => setActiveSlide(dotIdx)}
+                className={`h-2.5 rounded-full transition-all duration-300 ${
+                  activeSlide === dotIdx
+                    ? 'w-7 bg-blue-600'
+                    : 'w-2.5 bg-blue-200 hover:bg-blue-300'
+                }`}
+                aria-label={`Design slide ${dotIdx + 1}`}
+              />
+            ))}
+          </div>
+        </motion.div>
+
+        {/* ================= LIGHTBOX PREVIEW MODAL ================= */}
+        <AnimatePresence>
+          {selectedDesign && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedDesign(null)}
+              className="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
+            >
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+                onClick={(e) => e.stopPropagation()}
+                className="relative max-w-3xl w-full max-h-[90vh] bg-slate-900 rounded-3xl overflow-hidden border border-slate-700/60 shadow-2xl flex flex-col"
+              >
+                {/* Modal Header */}
+                <div className="flex items-center justify-between px-6 py-4 border-b border-slate-800 bg-slate-900/90">
+                  <div>
+                    <h4 className="text-lg font-bold text-white">
+                      {selectedDesign.title}
+                    </h4>
+                    <p className="text-xs text-slate-400">
+                      {selectedDesign.description}
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => setSelectedDesign(null)}
+                    aria-label="Close modal"
+                    className="w-9 h-9 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center transition-colors"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
+
+                {/* Modal Image Display */}
+                <div className="p-4 sm:p-6 overflow-y-auto flex items-center justify-center bg-slate-950">
+                  <img
+                    src={selectedDesign.imageSrc}
+                    alt={selectedDesign.title}
+                    className="max-h-[72vh] w-auto object-contain rounded-2xl shadow-xl"
+                  />
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
       </div>
     </section>

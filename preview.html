@@ -1076,12 +1076,12 @@
               </div>
 
               <!-- Action Buttons Row -->
-              <div class="flex flex-wrap items-center gap-4 sm:gap-6 pt-2">
+              <div class="flex flex-wrap items-center gap-3 pt-2">
                 <a
                   href="https://rommify-3d-paint-decor.vercel.app/"
                   target="_blank"
                   rel="noreferrer"
-                  class="bg-[#1d6fe9] hover:bg-blue-600 text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-xl transition-all shadow-md shadow-blue-500/25 hover:shadow-blue-500/40 flex items-center gap-2"
+                  class="bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 hover:opacity-95 text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-xl transition-all shadow-md shadow-blue-500/25 hover:shadow-blue-500/40 flex items-center gap-2"
                 >
                   <span>View case study</span>
                   <i data-lucide="arrow-right" class="w-4 h-4"></i>
@@ -1091,15 +1091,131 @@
                   href="https://rommify-3d-paint-decor.vercel.app/"
                   target="_blank"
                   rel="noreferrer"
-                  class="text-slate-700 hover:text-blue-600 font-semibold text-xs sm:text-sm transition-colors flex items-center gap-2 py-2 group"
+                  class="bg-white hover:bg-slate-50 text-slate-700 font-bold text-xs sm:text-sm px-4 py-3 rounded-xl border border-slate-200 transition-colors flex items-center gap-2"
                 >
-                  <i data-lucide="globe" class="w-4 h-4 text-slate-600 group-hover:text-blue-600 transition-colors"></i>
+                  <i data-lucide="external-link" class="w-4 h-4 text-slate-400"></i>
                   <span>Live Demo (Web)</span>
                 </a>
               </div>
             </div>
 
           </div>
+        </div>
+      </div>
+
+      <!-- ================= DESIGN WORK SHOWCASE SECTION ================= -->
+      <div class="w-full pt-16 sm:pt-20 lg:pt-24">
+        <!-- Header -->
+        <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
+          <span class="text-blue-600 font-bold text-xs sm:text-sm tracking-wider uppercase bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-100/80 inline-block mb-3">
+            DESIGN WORK
+          </span>
+          <h3 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight mb-3">
+            Visual Designs for Real Brands
+          </h3>
+          <p class="text-slate-500 font-medium text-xs sm:text-sm md:text-base leading-relaxed">
+            Logos, flyers, and social media designs created to build strong and consistent brand identities.
+          </p>
+        </div>
+
+        <!-- Cards Carousel / Grid Container with Navigation Arrows -->
+        <div class="relative px-0 sm:px-3 lg:px-5">
+          <!-- Prev Arrow -->
+          <button
+            aria-label="Previous Design"
+            class="absolute -left-3 sm:-left-5 lg:-left-6 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white border border-slate-200 shadow-lg flex items-center justify-center text-slate-700 hover:text-blue-600 hover:border-blue-300 hover:scale-110 active:scale-95 transition-all duration-200"
+          >
+            <i data-lucide="chevron-left" class="w-5 h-5"></i>
+          </button>
+
+          <!-- Design Cards Grid (Reduced Height, Clean Idle State, Title & Description Reveal on Hover) -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            
+            <!-- Design 1: Poster Design -->
+            <div class="group relative w-full h-[360px] sm:h-[390px] lg:h-[410px] rounded-3xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl border border-slate-200/70 bg-slate-900 transition-all duration-500">
+              <img
+                src="./public/images/design1.png"
+                alt="Poster Design"
+                class="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+              <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-6 z-20 flex items-end justify-between gap-3 opacity-0 translate-y-6 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out">
+                <div class="flex-1 min-w-0 pr-2">
+                  <h4 class="text-lg sm:text-xl font-bold text-white tracking-tight mb-1">
+                    Poster Design
+                  </h4>
+                  <p class="text-slate-300 text-xs sm:text-sm leading-relaxed font-normal line-clamp-2">
+                    Creative poster design with a modern and artistic look.
+                  </p>
+                </div>
+                <div class="w-10 h-10 rounded-2xl bg-white/15 hover:bg-white/30 border border-white/25 backdrop-blur-md flex items-center justify-center text-white shrink-0 transition-all shadow-md">
+                  <i data-lucide="external-link" class="w-4 h-4"></i>
+                </div>
+              </div>
+            </div>
+
+            <!-- Design 2: Social Media Post -->
+            <div class="group relative w-full h-[360px] sm:h-[390px] lg:h-[410px] rounded-3xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl border border-slate-200/70 bg-slate-900 transition-all duration-500">
+              <img
+                src="./public/images/DESIGN2.png"
+                alt="Social Media Post"
+                class="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+              <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-6 z-20 flex items-end justify-between gap-3 opacity-0 translate-y-6 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out">
+                <div class="flex-1 min-w-0 pr-2">
+                  <h4 class="text-lg sm:text-xl font-bold text-white tracking-tight mb-1">
+                    Social Media Post
+                  </h4>
+                  <p class="text-slate-300 text-xs sm:text-sm leading-relaxed font-normal line-clamp-2">
+                    Promotional design for a burger restaurant with a bold and appetizing style.
+                  </p>
+                </div>
+                <div class="w-10 h-10 rounded-2xl bg-white/15 hover:bg-white/30 border border-white/25 backdrop-blur-md flex items-center justify-center text-white shrink-0 transition-all shadow-md">
+                  <i data-lucide="external-link" class="w-4 h-4"></i>
+                </div>
+              </div>
+            </div>
+
+            <!-- Design 3: Flyer Design -->
+            <div class="group relative w-full h-[360px] sm:h-[390px] lg:h-[410px] rounded-3xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl border border-slate-200/70 bg-slate-900 transition-all duration-500">
+              <img
+                src="./public/images/BricoDz-Flyer.png"
+                alt="Flyer Design"
+                class="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
+              <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-6 z-20 flex items-end justify-between gap-3 opacity-0 translate-y-6 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 ease-out">
+                <div class="flex-1 min-w-0 pr-2">
+                  <h4 class="text-lg sm:text-xl font-bold text-white tracking-tight mb-1">
+                    Flyer Design
+                  </h4>
+                  <p class="text-slate-300 text-xs sm:text-sm leading-relaxed font-normal line-clamp-2">
+                    Promotional flyer design for BricoDz platform with a clean and professional look.
+                  </p>
+                </div>
+                <div class="w-10 h-10 rounded-2xl bg-white/15 hover:bg-white/30 border border-white/25 backdrop-blur-md flex items-center justify-center text-white shrink-0 transition-all shadow-md">
+                  <i data-lucide="external-link" class="w-4 h-4"></i>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Next Arrow -->
+          <button
+            aria-label="Next Design"
+            class="absolute -right-3 sm:-right-5 lg:-right-6 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white border border-slate-200 shadow-lg flex items-center justify-center text-slate-700 hover:text-blue-600 hover:border-blue-300 hover:scale-110 active:scale-95 transition-all duration-200"
+          >
+            <i data-lucide="chevron-right" class="w-5 h-5"></i>
+          </button>
+        </div>
+
+        <!-- Pagination Indicator Dots -->
+        <div class="flex items-center justify-center gap-2 mt-8">
+          <span class="w-7 h-2.5 rounded-full bg-blue-600 transition-all duration-300"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-blue-200 hover:bg-blue-300 transition-all duration-300 cursor-pointer"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-blue-200 hover:bg-blue-300 transition-all duration-300 cursor-pointer"></span>
         </div>
       </div>
 
